@@ -7,6 +7,8 @@
   --border-color: #111111;
   --accent-yellow: #f5b300;
   --accent-green: #00d26a;
+  --neon-green: #00e676;
+  --neon-orange: #ff7a00;
   --shadow-offset: 6px;
 }
 
@@ -171,6 +173,25 @@ html, body {
   box-shadow: 2px 2px 0px 0px var(--border-color);
 }
 
+.spec-pill-green {
+  border-left: 5px solid var(--neon-green);
+}
+
+.spec-pill-orange {
+  border-left: 5px solid var(--neon-orange);
+}
+
+.retro-badge-neon {
+  background: var(--neon-green);
+  color: #000;
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  margin-left: 8px;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
 /* Feature Grid */
 .features-grid {
   display: grid;
@@ -190,6 +211,14 @@ html, body {
 .feature-card:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px 0px var(--border-color);
+}
+
+.card-accent-green {
+  border-top: 4px solid var(--neon-green);
+}
+
+.card-accent-orange {
+  border-top: 4px solid var(--neon-orange);
 }
 
 .feature-card-header {

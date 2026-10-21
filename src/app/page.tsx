@@ -28,30 +28,32 @@ export default function Home() {
       {/* Floating Retro Mascots (Left & Right) */}
       {/* ============================================================ */}
       
-      {/* Mascot Left 1: Pixel Sniper Crosshair */}
+      {/* Mascot Left 1: Pixel Sniper Crosshair with neon orange target center */}
       <div className="mascot-left-1">
-        <svg width="78" height="78" viewBox="0 0 16 16" fill="var(--border-color)">
-          <path d="M7 0h2v3H7V0zm0 13h2v3H7v-3zM0 7h3v2H0V7zm13 0h3v2h-3V7zM5 3h6v2H5V3zm-2 2h2v6H3V5zm10 0h-2v6h2V5zm-8 6h6v2H5v-2zm2-3h2v2H7V8z" />
+        <svg width="78" height="78" viewBox="0 0 16 16">
+          <path d="M7 0h2v3H7V0zm0 13h2v3H7v-3zM0 7h3v2H0V7zm13 0h3v2h-3V7zM5 3h6v2H5V3zm-2 2h2v6H3V5zm10 0h-2v6h2V5zm-8 6h6v2H5v-2z" fill="var(--border-color)" />
+          <path d="M7 7h2v2H7V7z" fill="var(--neon-orange)" />
         </svg>
       </div>
 
-      {/* Mascot Left 2: Pixel Bullish Candlestick */}
+      {/* Mascot Left 2: Pixel Bullish Candlestick in neon green */}
       <div className="mascot-left-2">
-        <svg width="68" height="68" viewBox="0 0 16 16" fill="var(--border-color)">
+        <svg width="68" height="68" viewBox="0 0 16 16" fill="var(--neon-green)">
           <path d="M7 0h2v3H7V0zm-3 3h8v9H4V3zm3 9h2v4H7v-4zm-4-4h2v2H3V8zm10-2h2v2h-2V6z" />
         </svg>
       </div>
 
-      {/* Mascot Right 1: Pixel Rocket (To The Moon) */}
+      {/* Mascot Right 1: Pixel Rocket (To The Moon) with neon orange flames */}
       <div className="mascot-right-1">
-        <svg width="76" height="76" viewBox="0 0 16 16" fill="var(--border-color)">
-          <path d="M7 1h2v2H7V1zm-1 2h4v2H6V3zm-1 2h6v4H5V5zm-2 4h10v2H3V9zm-1 2h2v3H2v-3zm10 0h2v3h-2v-3zm-5 1h2v2H7v-2zm0 2h2v2H7v-2z" />
+        <svg width="76" height="76" viewBox="0 0 16 16">
+          <path d="M7 1h2v2H7V1zm-1 2h4v2H6V3zm-1 2h6v4H5V5zm-2 4h10v2H3V9zm-1 2h2v3H2v-3zm10 0h2v3h-2v-3z" fill="var(--border-color)" />
+          <path d="M7 11h2v2H7v-2zm-1 2h4v2H6v-2z" fill="var(--neon-orange)" />
         </svg>
       </div>
 
-      {/* Mascot Right 2: Pixel Diamond Hands */}
+      {/* Mascot Right 2: Pixel Diamond Hands in neon green */}
       <div className="mascot-right-2">
-        <svg width="72" height="72" viewBox="0 0 16 16" fill="var(--border-color)">
+        <svg width="72" height="72" viewBox="0 0 16 16" fill="var(--neon-green)">
           <path d="M4 2h8v2H4V2zm-2 2h12v2H2V4zm-1 2h14v2H1V6zm2 2h10v2H3V8zm2 2h6v2H5v-2zm2 2h2v2H7v-2z" />
         </svg>
       </div>
@@ -66,7 +68,9 @@ export default function Home() {
             <div className="mac-btn-box" onClick={() => setShowModal(true)}></div>
             <div className="mac-btn-box"></div>
           </div>
-          <div className="mac-titlebar-title">TRADE_SNIPER_v2.0.app</div>
+          <div className="mac-titlebar-title">
+            TRADE_SNIPER_v2.0.app <span className="retro-badge-neon">v2.0 LIVE</span>
+          </div>
           <div className="mac-controls">
             <div className="mac-btn-box"></div>
           </div>
@@ -78,9 +82,9 @@ export default function Home() {
           <div className="retro-status-bar">
             <div className="status-indicator">
               <span className="pulse-dot"></span>
-              <span>SYSTEM: BINANCE &amp; BYBIT FUTURES ENGINE LIVE</span>
+              <span>SYSTEM: <span style={{ color: '#c27803', fontWeight: 700 }}>BINANCE</span> &amp; <span style={{ color: '#ea580c', fontWeight: 700 }}>BYBIT</span> FUTURES ENGINE LIVE</span>
             </div>
-            <div>LATENCY: &lt; 10ms | SIZE: 425x550</div>
+            <div>LATENCY: <span style={{ color: '#16a34a', fontWeight: 700 }}>&lt; 10ms</span> | SIZE: 425x550</div>
           </div>
 
           {/* Hero Section */}
@@ -107,16 +111,16 @@ export default function Home() {
             </p>
 
             <div className="specs-bar">
-              <span className="spec-pill">⚡ SUB-10MS EXECUTION</span>
-              <span className="spec-pill">🛡️ AES-256 CLIENT VAULT</span>
-              <span className="spec-pill">🎯 SNIPE LIMIT ORDERS</span>
-              <span className="spec-pill">📐 3:4 GOLDEN COMPACT</span>
+              <span className="spec-pill spec-pill-green">⚡ SUB-10MS EXECUTION</span>
+              <span className="spec-pill spec-pill-orange">🎯 SNIPE LIMIT ORDERS</span>
+              <span className="spec-pill spec-pill-green">🛡️ AES-256 CLIENT VAULT</span>
+              <span className="spec-pill spec-pill-orange">📐 3:4 GOLDEN COMPACT</span>
             </div>
           </div>
 
           {/* Feature Grid */}
           <div className="features-grid">
-            <div className="feature-card">
+            <div className="feature-card card-accent-green">
               <div className="feature-card-header">
                 <span>📐</span> 425x550 Golden Ratio
               </div>
@@ -125,7 +129,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="feature-card">
+            <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
                 <span>🎯</span> Snipe Limit Orders
               </div>
@@ -134,7 +138,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="feature-card">
+            <div className="feature-card card-accent-green">
               <div className="feature-card-header">
                 <span>🛡️</span> 100% Client-Side Vault
               </div>
@@ -143,7 +147,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="feature-card">
+            <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
                 <span>🔄</span> Binance &amp; Bybit Dual Engine
               </div>
