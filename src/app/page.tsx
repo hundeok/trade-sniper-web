@@ -22,7 +22,43 @@ export default function Home() {
   };
 
   return (
-    <main style={{ minHeight: '100vh', padding: '1.5rem 1rem' }}>
+    <main style={{ minHeight: '100vh', padding: '1.5rem 1rem', position: 'relative' }}>
+      
+      {/* ============================================================ */}
+      {/* Floating Retro Mascots (Left & Right) */}
+      {/* ============================================================ */}
+      
+      {/* Mascot Left 1: Pixel Sniper Crosshair */}
+      <div className="mascot-left-1">
+        <svg width="78" height="78" viewBox="0 0 16 16" fill="var(--border-color)">
+          <path d="M7 0h2v3H7V0zm0 13h2v3H7v-3zM0 7h3v2H0V7zm13 0h3v2h-3V7zM5 3h6v2H5V3zm-2 2h2v6H3V5zm10 0h-2v6h2V5zm-8 6h6v2H5v-2zm2-3h2v2H7V8z" />
+        </svg>
+      </div>
+
+      {/* Mascot Left 2: Pixel Bullish Candlestick */}
+      <div className="mascot-left-2">
+        <svg width="68" height="68" viewBox="0 0 16 16" fill="var(--border-color)">
+          <path d="M7 0h2v3H7V0zm-3 3h8v9H4V3zm3 9h2v4H7v-4zm-4-4h2v2H3V8zm10-2h2v2h-2V6z" />
+        </svg>
+      </div>
+
+      {/* Mascot Right 1: Pixel Rocket (To The Moon) */}
+      <div className="mascot-right-1">
+        <svg width="76" height="76" viewBox="0 0 16 16" fill="var(--border-color)">
+          <path d="M7 1h2v2H7V1zm-1 2h4v2H6V3zm-1 2h6v4H5V5zm-2 4h10v2H3V9zm-1 2h2v3H2v-3zm10 0h2v3h-2v-3zm-5 1h2v2H7v-2zm0 2h2v2H7v-2z" />
+        </svg>
+      </div>
+
+      {/* Mascot Right 2: Pixel Diamond Hands */}
+      <div className="mascot-right-2">
+        <svg width="72" height="72" viewBox="0 0 16 16" fill="var(--border-color)">
+          <path d="M4 2h8v2H4V2zm-2 2h12v2H2V4zm-1 2h14v2H1V6zm2 2h10v2H3V8zm2 2h6v2H5v-2zm2 2h2v2H7v-2z" />
+        </svg>
+      </div>
+
+      {/* ============================================================ */}
+      {/* Main Mac Window Container */}
+      {/* ============================================================ */}
       <div className="mac-window">
         {/* Title Bar */}
         <div className="mac-titlebar">
@@ -42,7 +78,7 @@ export default function Home() {
           <div className="retro-status-bar">
             <div className="status-indicator">
               <span className="pulse-dot"></span>
-              <span>SYSTEM: BINANCE & BYBIT FUTURES ENGINE LIVE</span>
+              <span>SYSTEM: BINANCE &amp; BYBIT FUTURES ENGINE LIVE</span>
             </div>
             <div>LATENCY: &lt; 10ms | SIZE: 425x550</div>
           </div>
@@ -109,7 +145,7 @@ export default function Home() {
 
             <div className="feature-card">
               <div className="feature-card-header">
-                <span>🔄</span> Binance & Bybit Dual Engine
+                <span>🔄</span> Binance &amp; Bybit Dual Engine
               </div>
               <div className="feature-card-body">
                 Instantly swap between Binance Futures and Bybit Derivatives with live symbol stream and automatic tick-size rounding.
@@ -144,6 +180,21 @@ export default function Home() {
                 </svg>
                 Download for Windows
               </button>
+            </div>
+
+            {/* Ko-fi Support Link */}
+            <div className="kofi-section">
+              <a
+                href="https://ko-fi.com/hdcho"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kofi-btn"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.216 6.415l-.132-.666c-.119-.597-.382-1.154-.766-1.62-.383-.465-.873-.824-1.425-1.045C17.34 2.862 16.71 2.75 16.07 2.75H4.25c-.796 0-1.559.316-2.121.879C1.566 4.191 1.25 4.954 1.25 5.75v8.5c0 1.989.79 3.897 2.197 5.303C4.853 20.96 6.761 21.75 8.75 21.75h4.5c1.989 0 3.897-.79 5.303-2.197C19.96 18.147 20.75 16.239 20.75 14.25v-2.155c.677-.282 1.272-.731 1.722-1.303.45-.572.715-1.259.768-1.984.053-.725-.098-1.452-.438-2.098-.34-.646-.864-1.166-1.51-1.503l-.076-.792zm-1.466 3.99c-.068.309-.234.586-.471.785-.238.199-.538.31-.849.31h-.68v-3.5h.68c.311 0 .611.111.849.31.237.199.403.476.471.785.068.309.034.63-.098.918-.132.288-.358.523-.642.668l-.26.724zm-4-4.655v8.5c0 1.193-.474 2.338-1.318 3.182-.844.844-1.989 1.318-3.182 1.318h-4.5c-1.193 0-2.338-.474-3.182-1.318C2.724 16.588 2.25 15.443 2.25 14.25v-8.5c0-.53.211-1.039.586-1.414.375-.375.884-.586 1.414-.586h11.82c.39 0 .77.067 1.13.197.36.13.68.33.95.59.27.26.47.58.6.93.13.35.19.73.19 1.12v.213h-4.24z"/>
+                </svg>
+                Buy Me a Coffee (Ko-fi)
+              </a>
             </div>
           </div>
 
