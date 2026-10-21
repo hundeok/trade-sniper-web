@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const t = {
@@ -77,6 +77,17 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [targetPlatform, setTargetPlatform] = useState<'mac' | 'win'>('mac');
 
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('trade_sniper_lang') as 'en' | 'ko' | null;
+      if (saved === 'en' || saved === 'ko') {
+        setLang(saved);
+      }
+    } catch (e) {
+      // ignore in environments without localStorage
+    }
+  }, []);
+
   const cur = t[lang];
 
   // 다운로드 파일이 준비되면 true로 바꾸고 URL을 연결하면 즉시 다운로드 모드로 전환됩니다.
@@ -94,7 +105,15 @@ export default function Home() {
   };
 
   const toggleLang = () => {
-    setLang((prev) => (prev === 'en' ? 'ko' : 'en'));
+    setLang((prev) => {
+      const next = prev === 'en' ? 'ko' : 'en';
+      try {
+        localStorage.setItem('trade_sniper_lang', next);
+      } catch (e) {
+        // ignore
+      }
+      return next;
+    });
   };
 
   return (
