@@ -11,16 +11,12 @@ const t = {
     heroSub: 'Tired of bloated web dashboards lagging when volatility spikes? TRADE SNIPER is an ultra-lightweight, native GUI designed for scalpers who demand sub-millisecond execution beside their charts.',
     pill1: '⚡ SUB-10MS EXECUTION',
     pill2: '🎯 SNIPE LIMIT ORDERS',
-    pill3: '🛡️ AES-256 CLIENT VAULT',
+    pill3: '🕸️ SPIDER-NET GRID',
     pill4: '📐 3:4 GOLDEN COMPACT',
-    card1Title: '425x550 Golden Ratio',
-    card1Desc: 'Occupies just 425x550 pixels. Snaps neatly alongside your TradingView or multicharts without obstructing candles or order books.',
-    card2Title: 'Snipe Limit Orders',
-    card2Desc: 'Auto-calculate percentage-based quantity and execute high-speed limit snipes and quick-market exits with zero keyboard friction.',
-    card3Title: '100% Client-Side Vault',
-    card3Desc: 'Your API secrets never touch any external server. Everything is encrypted via AES-256 and stored exclusively on your local machine.',
-    card4Title: 'Binance & Bybit Dual Engine',
-    card4Desc: 'Instantly swap between Binance Futures and Bybit Derivatives with live symbol stream and automatic tick-size rounding.',
+    card1Title: 'Market-Speed Limit Orders',
+    card1Desc: 'Stop paying expensive taker fees. Injects ultra-fast Post-Only limit orders at the top of the order book for instant fills at maker rates, with auto-market fallback on sudden book shifts.',
+    card2Title: 'One-Click Spider-Net Grid',
+    card2Desc: 'Stop manually clicking hundreds of ladder orders! Combine Gap × Base × Count presets to blanket the order book with multi-level grids in a single click, and sweep-cancel in one second.',
     ctaTitle: 'GET READY TO SNIPE',
     ctaDesc: 'Lightweight native performance. No telemetry, zero bloatware, pure speed.',
     macBtn: 'Download for Mac (v2.0)',
@@ -40,16 +36,12 @@ const t = {
     heroSub: '변동성 폭발할 때 버벅이는 무거운 웹 화면에 지치셨나요? TRADE SNIPER는 차트 바로 옆에 밀착시켜 0.01초 찰나의 순간을 낚아채는 네이티브 스캘퍼 전용 GUI입니다.',
     pill1: '⚡ 0.01초 초저지연 체결',
     pill2: '🎯 낚아채기 지정가 주문',
-    pill3: '🛡️ AES-256 로컬 암호화',
+    pill3: '🕸️ 스마트 거미줄 분할',
     pill4: '📐 3:4 황금비율 컴팩트',
-    card1Title: '425x550 황금비율 컴팩트',
-    card1Desc: '단 425x550 픽셀의 초슬림 규격. 트레이딩뷰 차트나 호가창을 전혀 가리지 않고 화면 구석에 완벽하게 밀착됩니다.',
-    card2Title: '낚아채기 지정가 스나이프',
-    card2Desc: '퍼센트 기반 실시간 수량 계산과 갭(Gap) 프리셋. 찰나의 눌림목 낚아채기 주문과 빛의 속도 청산을 지원합니다.',
-    card3Title: '100% 로컬 보안 금고',
-    card3Desc: '대표님의 API Key와 Secret은 어떠한 외부 서버로도 1바이트조차 전송되지 않습니다. 내 PC에만 AES-256으로 암호화 보관됩니다.',
-    card4Title: '바이낸스 & 바이비트 듀얼 연동',
-    card4Desc: '클릭 한 번으로 바이낸스 선물과 바이비트 파생상품을 즉각 전환. 실시간 종목 시세 연동 및 틱 사이즈 자동 보정.',
+    card1Title: '시장가 같은 지정가 (메이커 수수료)',
+    card1Desc: '비싼 시장가(Taker) 수수료를 낼 필요가 없습니다. 최우선 호가에 초저지연 지정가(Post-Only)로 찔러 넣어 시장가 속도로 즉시 체결시키며 수수료는 메이커로 절약합니다. 호가 급변 시 즉각 시장가 대체 진입.',
+    card2Title: '원클릭 스마트 거미줄 (Spider-Net)',
+    card2Desc: '손 아프게 하나하나 분할 주문 걸지 마세요! Gap(간격) × Base(이격) × 개수(5~500개) 프리셋 조합으로, 클릭 한 번에 촘촘한 그물망 호가를 쫙 깔고 1초 만에 일괄 회수합니다.',
     ctaTitle: '스나이핑 준비 완료',
     ctaDesc: '네이티브의 압도적 속도감. 불필요한 트래킹 없이 오직 가볍고 빠른 트레이딩.',
     macBtn: 'Mac용 다운로드 (v2.0)',
@@ -199,11 +191,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature Grid */}
+          {/* 2 Core Feature Cards */}
           <div className="features-grid">
             <div className="feature-card card-accent-green">
               <div className="feature-card-header">
-                <span>📐</span> {cur.card1Title}
+                <span>⚡</span> {cur.card1Title}
               </div>
               <div className="feature-card-body">
                 {cur.card1Desc}
@@ -212,28 +204,10 @@ export default function Home() {
 
             <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
-                <span>🎯</span> {cur.card2Title}
+                <span>🕸️</span> {cur.card2Title}
               </div>
               <div className="feature-card-body">
                 {cur.card2Desc}
-              </div>
-            </div>
-
-            <div className="feature-card card-accent-green">
-              <div className="feature-card-header">
-                <span>🛡️</span> {cur.card3Title}
-              </div>
-              <div className="feature-card-body">
-                {cur.card3Desc}
-              </div>
-            </div>
-
-            <div className="feature-card card-accent-orange">
-              <div className="feature-card-header">
-                <span>🔄</span> {cur.card4Title}
-              </div>
-              <div className="feature-card-body">
-                {cur.card4Desc}
               </div>
             </div>
           </div>
