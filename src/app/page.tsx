@@ -3,9 +3,73 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
+const t = {
+  en: {
+    statusEngine: 'SYSTEM: BINANCE & BYBIT FUTURES ENGINE LIVE',
+    latency: 'LATENCY: < 10ms | SIZE: 425x550',
+    heroTag: 'Zero Screen Clutter. Pure Execution.\nThe 425x550 Desktop Futures Scalping Terminal.',
+    heroSub: 'Tired of bloated web dashboards lagging when volatility spikes? TRADE SNIPER is an ultra-lightweight, native GUI designed for scalpers who demand sub-millisecond execution beside their charts.',
+    pill1: '⚡ SUB-10MS EXECUTION',
+    pill2: '🎯 SNIPE LIMIT ORDERS',
+    pill3: '🛡️ AES-256 CLIENT VAULT',
+    pill4: '📐 3:4 GOLDEN COMPACT',
+    card1Title: '425x550 Golden Ratio',
+    card1Desc: 'Occupies just 425x550 pixels. Snaps neatly alongside your TradingView or multicharts without obstructing candles or order books.',
+    card2Title: 'Snipe Limit Orders',
+    card2Desc: 'Auto-calculate percentage-based quantity and execute high-speed limit snipes and quick-market exits with zero keyboard friction.',
+    card3Title: '100% Client-Side Vault',
+    card3Desc: 'Your API secrets never touch any external server. Everything is encrypted via AES-256 and stored exclusively on your local machine.',
+    card4Title: 'Binance & Bybit Dual Engine',
+    card4Desc: 'Instantly swap between Binance Futures and Bybit Derivatives with live symbol stream and automatic tick-size rounding.',
+    ctaTitle: 'GET READY TO SNIPE',
+    ctaDesc: 'Lightweight native performance. No telemetry, zero bloatware, pure speed.',
+    macBtn: 'Download for Mac (v2.0)',
+    winBtn: 'Download for Windows',
+    kofiBtn: 'Buy Me a Coffee (Ko-fi)',
+    footer: 'TRADE SNIPER © 2026. ALL RIGHTS RESERVED.',
+    footerSub: 'BUILT FOR SPEED. TRADE RESPONSIBLY.',
+    modalNotice: 'SYSTEM NOTICE: RELEASE PIPELINE',
+    modalTitle: (platform: string) => `🎯 TRADE SNIPER v2.0 (${platform === 'mac' ? 'macOS Apple Silicon' : 'Windows x64'})`,
+    modalDesc: 'Latest release build packaging & final security verification in progress.\nDirect download pipeline will open shortly.',
+    modalConfirm: '[ CONFIRM ]',
+  },
+  ko: {
+    statusEngine: '시스템: 바이낸스 & 바이비트 선물 실시간 엔진 가동 중',
+    latency: '지연시간: < 10ms | 규격: 425x550',
+    heroTag: '차트를 가리지 않는 425x550 초소형 터미널.\n오직 스캘핑 본질에만 집중하는 초경량 선물 UI.',
+    heroSub: '변동성 폭발할 때 버벅이는 무거운 웹 화면에 지치셨나요? TRADE SNIPER는 차트 바로 옆에 밀착시켜 0.01초 찰나의 순간을 낚아채는 네이티브 스캘퍼 전용 GUI입니다.',
+    pill1: '⚡ 0.01초 초저지연 체결',
+    pill2: '🎯 낚아채기 지정가 주문',
+    pill3: '🛡️ AES-256 로컬 암호화',
+    pill4: '📐 3:4 황금비율 컴팩트',
+    card1Title: '425x550 황금비율 컴팩트',
+    card1Desc: '단 425x550 픽셀의 초슬림 규격. 트레이딩뷰 차트나 호가창을 전혀 가리지 않고 화면 구석에 완벽하게 밀착됩니다.',
+    card2Title: '낚아채기 지정가 스나이프',
+    card2Desc: '퍼센트 기반 실시간 수량 계산과 갭(Gap) 프리셋. 찰나의 눌림목 낚아채기 주문과 빛의 속도 청산을 지원합니다.',
+    card3Title: '100% 로컬 보안 금고',
+    card3Desc: '대표님의 API Key와 Secret은 어떠한 외부 서버로도 1바이트조차 전송되지 않습니다. 내 PC에만 AES-256으로 암호화 보관됩니다.',
+    card4Title: '바이낸스 & 바이비트 듀얼 연동',
+    card4Desc: '클릭 한 번으로 바이낸스 선물과 바이비트 파생상품을 즉각 전환. 실시간 종목 시세 연동 및 틱 사이즈 자동 보정.',
+    ctaTitle: '스나이핑 준비 완료',
+    ctaDesc: '네이티브의 압도적 속도감. 불필요한 트래킹 없이 오직 가볍고 빠른 트레이딩.',
+    macBtn: 'Mac용 다운로드 (v2.0)',
+    winBtn: 'Windows용 다운로드',
+    kofiBtn: '개발자 커피 후원하기 (Ko-fi)',
+    footer: 'TRADE SNIPER © 2026. ALL RIGHTS RESERVED.',
+    footerSub: '속도를 위해 설계됨. 책임감 있게 매매하세요.',
+    modalNotice: '시스템 알림: 릴리즈 파이프라인',
+    modalTitle: (platform: string) => `🎯 TRADE SNIPER v2.0 (${platform === 'mac' ? 'macOS Apple Silicon' : 'Windows x64'})`,
+    modalDesc: '최신 릴리즈 빌드 패키징 및 최종 보안 검증 단계입니다.\n곧 정식 다운로드 파이프라인이 열릴 예정입니다.',
+    modalConfirm: '[ 확인 (CONFIRM) ]',
+  }
+};
+
 export default function Home() {
+  const [lang, setLang] = useState<'en' | 'ko'>('en');
   const [showModal, setShowModal] = useState(false);
   const [targetPlatform, setTargetPlatform] = useState<'mac' | 'win'>('mac');
+
+  const cur = t[lang];
 
   // 다운로드 파일이 준비되면 true로 바꾸고 URL을 연결하면 즉시 다운로드 모드로 전환됩니다.
   const IS_DOWNLOAD_READY = false;
@@ -19,6 +83,10 @@ export default function Home() {
       setTargetPlatform(platform);
       setShowModal(true);
     }
+  };
+
+  const toggleLang = () => {
+    setLang((prev) => (prev === 'en' ? 'ko' : 'en'));
   };
 
   return (
@@ -68,10 +136,18 @@ export default function Home() {
             <div className="mac-btn-box" onClick={() => setShowModal(true)}></div>
             <div className="mac-btn-box"></div>
           </div>
+          
           <div className="mac-titlebar-title">
             TRADE_SNIPER_v2.0.app <span className="retro-badge-neon">v2.0 LIVE</span>
           </div>
+
           <div className="mac-controls">
+            {/* Retro EN / KO Language Toggle */}
+            <button className="lang-toggle-btn" onClick={toggleLang} title="Toggle Language (EN / KO)">
+              <span className={lang === 'en' ? 'lang-active' : 'lang-inactive'}>EN</span>
+              <span className="lang-slash">/</span>
+              <span className={lang === 'ko' ? 'lang-active' : 'lang-inactive'}>KO</span>
+            </button>
             <div className="mac-btn-box"></div>
           </div>
         </div>
@@ -82,9 +158,16 @@ export default function Home() {
           <div className="retro-status-bar">
             <div className="status-indicator">
               <span className="pulse-dot"></span>
-              <span>SYSTEM: <span style={{ color: '#c27803', fontWeight: 700 }}>BINANCE</span> &amp; <span style={{ color: '#ea580c', fontWeight: 700 }}>BYBIT</span> FUTURES ENGINE LIVE</span>
+              {lang === 'en' ? (
+                <span>SYSTEM: <span style={{ color: '#c27803', fontWeight: 700 }}>BINANCE</span> &amp; <span style={{ color: '#ea580c', fontWeight: 700 }}>BYBIT</span> FUTURES ENGINE LIVE</span>
+              ) : (
+                <span>시스템: <span style={{ color: '#c27803', fontWeight: 700 }}>바이낸스</span> &amp; <span style={{ color: '#ea580c', fontWeight: 700 }}>바이비트</span> 선물 엔진 가동 중</span>
+              )}
             </div>
-            <div>LATENCY: <span style={{ color: '#16a34a', fontWeight: 700 }}>&lt; 10ms</span> | SIZE: 425x550</div>
+            <div>
+              {lang === 'en' ? 'LATENCY: ' : '지연시간: '}
+              <span style={{ color: '#16a34a', fontWeight: 700 }}>&lt; 10ms</span> | {lang === 'en' ? 'SIZE: 425x550' : '규격: 425x550'}
+            </div>
           </div>
 
           {/* Hero Section */}
@@ -100,21 +183,19 @@ export default function Home() {
               />
             </div>
 
-            <h1 className="hero-tagline">
-              Zero Screen Clutter. Pure Execution.<br />
-              The 425x550 Desktop Futures Scalping Terminal.
+            <h1 className="hero-tagline" style={{ whiteSpace: 'pre-line' }}>
+              {cur.heroTag}
             </h1>
 
             <p className="hero-subtext">
-              Tired of bloated web dashboards lagging when volatility spikes?
-              TRADE SNIPER is an ultra-lightweight, native GUI designed for scalpers who demand sub-millisecond execution beside their charts.
+              {cur.heroSub}
             </p>
 
             <div className="specs-bar">
-              <span className="spec-pill spec-pill-green">⚡ SUB-10MS EXECUTION</span>
-              <span className="spec-pill spec-pill-orange">🎯 SNIPE LIMIT ORDERS</span>
-              <span className="spec-pill spec-pill-green">🛡️ AES-256 CLIENT VAULT</span>
-              <span className="spec-pill spec-pill-orange">📐 3:4 GOLDEN COMPACT</span>
+              <span className="spec-pill spec-pill-green">{cur.pill1}</span>
+              <span className="spec-pill spec-pill-orange">{cur.pill2}</span>
+              <span className="spec-pill spec-pill-green">{cur.pill3}</span>
+              <span className="spec-pill spec-pill-orange">{cur.pill4}</span>
             </div>
           </div>
 
@@ -122,47 +203,45 @@ export default function Home() {
           <div className="features-grid">
             <div className="feature-card card-accent-green">
               <div className="feature-card-header">
-                <span>📐</span> 425x550 Golden Ratio
+                <span>📐</span> {cur.card1Title}
               </div>
               <div className="feature-card-body">
-                Occupies just 425x550 pixels. Snaps neatly alongside your TradingView or multicharts without obstructing candles or order books.
+                {cur.card1Desc}
               </div>
             </div>
 
             <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
-                <span>🎯</span> Snipe Limit Orders
+                <span>🎯</span> {cur.card2Title}
               </div>
               <div className="feature-card-body">
-                Auto-calculate percentage-based quantity and execute high-speed limit snipes and quick-market exits with zero keyboard friction.
+                {cur.card2Desc}
               </div>
             </div>
 
             <div className="feature-card card-accent-green">
               <div className="feature-card-header">
-                <span>🛡️</span> 100% Client-Side Vault
+                <span>🛡️</span> {cur.card3Title}
               </div>
               <div className="feature-card-body">
-                Your API secrets never touch any external server. Everything is encrypted via AES-256 and stored exclusively on your local machine.
+                {cur.card3Desc}
               </div>
             </div>
 
             <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
-                <span>🔄</span> Binance &amp; Bybit Dual Engine
+                <span>🔄</span> {cur.card4Title}
               </div>
               <div className="feature-card-body">
-                Instantly swap between Binance Futures and Bybit Derivatives with live symbol stream and automatic tick-size rounding.
+                {cur.card4Desc}
               </div>
             </div>
           </div>
 
           {/* Download CTA Section */}
           <div className="cta-container">
-            <div className="cta-title">GET READY TO SNIPE</div>
-            <p className="cta-desc">
-              Lightweight native performance. No telemetry, zero bloatware, pure speed.
-            </p>
+            <div className="cta-title">{cur.ctaTitle}</div>
+            <p className="cta-desc">{cur.ctaDesc}</p>
 
             <div className="btn-group">
               <button
@@ -172,7 +251,7 @@ export default function Home() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.07-1.86.95-2.94-1 .04-2.17.67-2.85 1.46-.59.69-1.11 1.8-1 2.86 1.12.09 2.24-.57 2.9-1.38z"/>
                 </svg>
-                Download for Mac (v2.0)
+                {cur.macBtn}
               </button>
 
               <button
@@ -182,7 +261,7 @@ export default function Home() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.95-1.8"/>
                 </svg>
-                Download for Windows
+                {cur.winBtn}
               </button>
             </div>
 
@@ -197,16 +276,16 @@ export default function Home() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.216 6.415l-.132-.666c-.119-.597-.382-1.154-.766-1.62-.383-.465-.873-.824-1.425-1.045C17.34 2.862 16.71 2.75 16.07 2.75H4.25c-.796 0-1.559.316-2.121.879C1.566 4.191 1.25 4.954 1.25 5.75v8.5c0 1.989.79 3.897 2.197 5.303C4.853 20.96 6.761 21.75 8.75 21.75h4.5c1.989 0 3.897-.79 5.303-2.197C19.96 18.147 20.75 16.239 20.75 14.25v-2.155c.677-.282 1.272-.731 1.722-1.303.45-.572.715-1.259.768-1.984.053-.725-.098-1.452-.438-2.098-.34-.646-.864-1.166-1.51-1.503l-.076-.792zm-1.466 3.99c-.068.309-.234.586-.471.785-.238.199-.538.31-.849.31h-.68v-3.5h.68c.311 0 .611.111.849.31.237.199.403.476.471.785.068.309.034.63-.098.918-.132.288-.358.523-.642.668l-.26.724zm-4-4.655v8.5c0 1.193-.474 2.338-1.318 3.182-.844.844-1.989 1.318-3.182 1.318h-4.5c-1.193 0-2.338-.474-3.182-1.318C2.724 16.588 2.25 15.443 2.25 14.25v-8.5c0-.53.211-1.039.586-1.414.375-.375.884-.586 1.414-.586h11.82c.39 0 .77.067 1.13.197.36.13.68.33.95.59.27.26.47.58.6.93.13.35.19.73.19 1.12v.213h-4.24z"/>
                 </svg>
-                Buy Me a Coffee (Ko-fi)
+                {cur.kofiBtn}
               </a>
             </div>
           </div>
 
           {/* Footer */}
           <div className="mac-footer">
-            <p>TRADE SNIPER © 2026. ALL RIGHTS RESERVED.</p>
+            <p>{cur.footer}</p>
             <p style={{ marginTop: '4px', opacity: 0.7 }}>
-              BUILT FOR SPEED. TRADE RESPONSIBLY.
+              {cur.footerSub}
             </p>
           </div>
         </div>
@@ -217,16 +296,15 @@ export default function Home() {
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-window" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <span>SYSTEM NOTICE: RELEASE PIPELINE</span>
+              <span>{cur.modalNotice}</span>
               <button className="modal-close" onClick={() => setShowModal(false)}>X</button>
             </div>
             <div className="modal-body">
               <p style={{ fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.8rem' }}>
-                🎯 TRADE SNIPER v2.0 ({targetPlatform === 'mac' ? 'macOS Apple Silicon' : 'Windows x64'})
+                {cur.modalTitle(targetPlatform)}
               </p>
-              <p style={{ marginBottom: '1rem', color: '#333' }}>
-                최신 릴리즈 빌드 패키징 및 최종 보안 검증 단계입니다.<br />
-                곧 정식 다운로드 파이프라인이 열릴 예정입니다.
+              <p style={{ marginBottom: '1rem', color: '#333', whiteSpace: 'pre-line' }}>
+                {cur.modalDesc}
               </p>
               <div style={{ background: '#f0f0f0', border: '1px solid #111', padding: '10px', fontSize: '0.82rem', marginBottom: '1.2rem' }}>
                 <div>• Version: v2.0 (Build 2026.10)</div>
@@ -238,7 +316,7 @@ export default function Home() {
                 style={{ width: '100%', justifyContent: 'center', padding: '10px' }}
                 onClick={() => setShowModal(false)}
               >
-                [ 확인 (CONFIRM) ]
+                {cur.modalConfirm}
               </button>
             </div>
           </div>
