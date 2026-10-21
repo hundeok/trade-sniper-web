@@ -10,8 +10,8 @@ const t = {
     heroTag: 'Zero Screen Clutter. Pure Execution.\nThe 425x550 Desktop Futures Scalping Terminal.',
     heroSub: 'Tired of bloated web dashboards lagging when volatility spikes? TRADE SNIPER is an ultra-lightweight, native GUI designed for scalpers who demand sub-millisecond execution beside their charts.',
     pill1: '⚡ SUB-10MS EXECUTION',
-    pill2: '🎯 SNIPE LIMIT ORDERS',
-    pill3: '🕸️ SPIDER-NET GRID',
+    pill2: '🎯 SNIPE & SPIDER ORDERS',
+    pill3: '🛡️ AES-256 CLIENT VAULT',
     pill4: '📐 3:4 GOLDEN COMPACT',
     card1Title: '425x550 Golden Ratio',
     card1Desc: 'Occupies just 425x550 pixels. Snaps neatly alongside your TradingView or multicharts without obstructing candles or order books.',
@@ -43,8 +43,8 @@ const t = {
     heroTag: '차트를 가리지 않는 425x550 초소형 터미널.\n오직 스캘핑 본질에만 집중하는 초경량 선물 UI.',
     heroSub: '변동성 폭발할 때 버벅이는 무거운 웹 화면에 지치셨나요? TRADE SNIPER는 차트 바로 옆에 밀착시켜 0.01초 찰나의 순간을 낚아채는 네이티브 스캘퍼 전용 GUI입니다.',
     pill1: '⚡ 0.01초 초저지연 체결',
-    pill2: '🎯 낚아채기 지정가 주문',
-    pill3: '🕸️ 스마트 거미줄 분할',
+    pill2: '🎯 낚아채기 & 거미줄 주문',
+    pill3: '🛡️ AES-256 로컬 암호화',
     pill4: '📐 3:4 황금비율 컴팩트',
     card1Title: '425x550 황금비율 컴팩트',
     card1Desc: '단 425x550 픽셀의 초슬림 규격. 트레이딩뷰 차트나 호가창을 전혀 가리지 않고 화면 구석에 완벽하게 밀착됩니다.',
@@ -219,15 +219,16 @@ export default function Home() {
             </p>
 
             <div className="specs-bar">
-              <span className="spec-pill spec-pill-green">{cur.pill1}</span>
+              <span className="spec-pill spec-pill-orange">{cur.pill1}</span>
               <span className="spec-pill spec-pill-orange">{cur.pill2}</span>
               <span className="spec-pill spec-pill-green">{cur.pill3}</span>
-              <span className="spec-pill spec-pill-orange">{cur.pill4}</span>
+              <span className="spec-pill spec-pill-green">{cur.pill4}</span>
             </div>
           </div>
 
           {/* 6 Feature Grid */}
           <div className="features-grid">
+            {/* 1. 외적: 황금비율 (네온그린) */}
             <div className="feature-card card-accent-green">
               <div className="feature-card-header">
                 <span>📐</span> {cur.card1Title}
@@ -237,6 +238,7 @@ export default function Home() {
               </div>
             </div>
 
+            {/* 2. 내적: 눌림목 낚아채기 (네온오렌지) */}
             <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
                 <span>🎯</span> {cur.card2Title}
@@ -246,7 +248,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="feature-card card-accent-green">
+            {/* 3. 내적: 시장가 같은 지정가 (네온오렌지) */}
+            <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
                 <span>⚡</span> {cur.card3Title}
               </div>
@@ -255,6 +258,7 @@ export default function Home() {
               </div>
             </div>
 
+            {/* 4. 내적: 원클릭 스마트 거미줄 (네온오렌지) */}
             <div className="feature-card card-accent-orange">
               <div className="feature-card-header">
                 <span>🕸️</span> {cur.card4Title}
@@ -264,6 +268,7 @@ export default function Home() {
               </div>
             </div>
 
+            {/* 5. 외적: 로컬 보안 금고 (네온그린) */}
             <div className="feature-card card-accent-green">
               <div className="feature-card-header">
                 <span>🛡️</span> {cur.card5Title}
@@ -273,7 +278,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="feature-card card-accent-orange">
+            {/* 6. 외적: 바이낸스 & 바이비트 (네온그린) */}
+            <div className="feature-card card-accent-green">
               <div className="feature-card-header">
                 <span>🔄</span> {cur.card6Title}
               </div>
